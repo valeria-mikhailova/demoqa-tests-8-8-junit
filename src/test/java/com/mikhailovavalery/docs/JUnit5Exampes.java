@@ -1,8 +1,8 @@
-package com.mikhailovavalery;
+package com.mikhailovavalery.docs;
 
 import org.junit.jupiter.api.*;
 
-public class DemoQATest {
+public class JUnit5Exampes {
 
     @BeforeAll
     static void beforeTest() {
