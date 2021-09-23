@@ -4,6 +4,9 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
@@ -19,17 +22,38 @@ public class PracticeFormTests {
         $("#lastName").setValue("Smith");
         $("#userEmail").setValue("a.smith@gmail.com");
         $(".custom-control-label").click();
-        $("#userNumber").setValue("a.smith@gmail.com");
+        $("#userNumber").setValue("2354567454");
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue("11");
+        $(".react-datepicker__month-select").selectOption("December");
         $(".react-datepicker__year-select").selectOptionByValue("1992");
-        $(".react-datepicker__day react-datepicker__day--017").click();
-        $(".subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3").setValue("First Subjects");
-        $("#hobbies-checkbox-1").click();
-        $("#hobbies-checkbox-3").click();
+        $(".react-datepicker__day--017").click();
+        $("#subjectsContainer").find("input").setValue("Commerce").pressEnter();
+        $("[for='hobbies-checkbox-2']").click();
+        File file = $("#uploadPicture").uploadFile(new File("src/test/java/com/mikhailovavalery/tests/resources/PracticeForm.jpg"));
+        $("#currentAddress").setValue("Blin Street");
+        $("#state").find("input").setValue("NCR").pressEnter();
+        $("#city").find("input").setValue("Gurgaon").pressEnter();
+        $("#submit").scrollTo().click();
+
+        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(
+                text("Alex"),
+                text("Smith"),
+                text("a.smith@gmail.com"),
+                text("2354567454"),
+                text("Commerce"),
+                text("Reading"),
+                text("PracticeForm.jpg"),
+                text("Blin Street"),
+                text("NCR"),
+                text("Gurgaon")
+        );
 
 
-        }
+
+
+
+    }
 
 
 
