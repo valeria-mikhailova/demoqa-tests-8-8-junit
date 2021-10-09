@@ -37,13 +37,5 @@ public class PracticeFormTests {
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Alex"),text("Smith"),text("a.smith@gmail.com"), text("2354567454"), text("Commerce"),text("Reading"),text("PracticeForm.jpg"),text("Blin Street"),text("NCR"),text("Gurgaon")
         );
-
-
-
-
-
     }
-
-
-
 }
