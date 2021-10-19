@@ -8,18 +8,18 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static com.mikhailovavalery.tests.TestData.firstName;
+import static com.mikhailovavalery.tests.TestData.lastName;
 
-public class PracticeFormTests {
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.startMaximized = true;
-    }
+public class PracticeFormTests extends TestBase{
+
+
 
     @Test
     void TestForm() {
         open("https://demoqa.com/automation-practice-form");
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Smith");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
         $("#userEmail").setValue("a.smith@gmail.com");
         $(".custom-control-label").click();
         $("#userNumber").setValue("2354567454");
@@ -35,7 +35,7 @@ public class PracticeFormTests {
         $("#city").find("input").setValue("Gurgaon").pressEnter();
         $("#submit").scrollTo().click();
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex"),text("Smith"),text("a.smith@gmail.com"), text("2354567454"), text("Commerce"),text("Reading"),text("PracticeForm.jpg"),text("Blin Street"),text("NCR"),text("Gurgaon")
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName),text("a.smith@gmail.com"), text("2354567454"), text("Commerce"),text("Reading"),text("PracticeForm.jpg"),text("Blin Street"),text("NCR"),text("Gurgaon")
         );
     }
 }
