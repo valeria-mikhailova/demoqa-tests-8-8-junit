@@ -18,6 +18,8 @@ public class PracticeFormTests extends TestBase{
     @Test
     void TestForm() {
         open("https://demoqa.com/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue("a.smith@gmail.com");
