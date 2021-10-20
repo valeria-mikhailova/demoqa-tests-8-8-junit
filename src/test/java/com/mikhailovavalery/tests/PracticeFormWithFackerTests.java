@@ -26,6 +26,7 @@ public class PracticeFormWithFackerTests extends TestBase{
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(userEmail);
+
         $(".custom-control-label").click();
         $("#userNumber").setValue("2354567454");
         $("#dateOfBirthInput").click();
@@ -40,6 +41,7 @@ public class PracticeFormWithFackerTests extends TestBase{
         $("#city").find("input").setValue("Gurgaon").pressEnter();
         $("#submit").scrollTo().click();
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),text(userEmail), text("2354567454"),
                 text("Commerce"),text("Reading"),text("PracticeForm.jpg"),text(currentAddress),text("NCR"),text("Gurgaon")
         );
