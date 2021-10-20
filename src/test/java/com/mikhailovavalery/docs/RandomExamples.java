@@ -12,8 +12,8 @@ public class RandomExamples {
         String randomMessage = getRandomMessage(31, 42);
         System.out.println(randomMessage);
 
-        int randomInt = getRandomInt(int 223333, int 100000000);
-        System.out.println(randomInt + "");
+//        int randomInt = getRandomInt(int 223333, int 100000000);
+//        System.out.println(randomInt + "");
 
         String randomPhone = getRandomPhone();
         System.out.println(randomPhone);
