@@ -16,32 +16,25 @@ public class PracticeFormTestsWithPageObjectTestsHomeWork extends TestBase {
     @Test
     void TestForm() {
         registrationPage.openPage();
-
         registrationPage.typeFirstName(firstName)
                         .typeLastName(lastName)
-                        .typeUserEmail(userEmail);
-
+                        .typeUserEmail(userEmail)
+                        .typeUserAdress(userAdress);
         registrationPage.male.setSex();
         registrationPage.typeUserNumber(UserNumber);
         registrationPage.calendar.setDate("17", "December", "1992");
         registrationPage.subject.setSubject("Commerce");
-
-
-        $("[for='hobbies-checkbox-2']").click();
-        File file = $("#uploadPicture").uploadFile(new File("src/test/java/com/mikhailovavalery/tests/resources/PracticeForm.jpg"));
-        $("#currentAddress").setValue("Blin Street");
-        $("#state").find("input").setValue("NCR").pressEnter();
-        $("#city").find("input").setValue("Gurgaon").pressEnter();
-        $("#submit").scrollTo().click();
-        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        registrationPage.checkResultsValue("Student Name", firstName + " " + lastName );
-
-
+        registrationPage.reading.setHobby();
+        registrationPage.pic.setFile(pathnamejpg);
+        registrationPage.findState()
+                        .findCity();
+        registrationPage.clickSubmit();
+        registrationPage.shouldHaveText()
+                        .checkResultsValue("Student Name", firstName + " " + lastName );
+    }
+}
 //     Пример, как писать более красиво. Вместо длинных строчек с плюсами (см строчку предыдущую)
 //     String bigtext = "apple %s banana %s ananas"; // на места %s встанут переменные b и c
 //     String b = "and";
 //     String c = "not";
 //     System.out.print(String.format(bigtext, b, c));
-
-    }
-}

@@ -6,5 +6,8 @@ public class TestData {
             firstName = "Alex",
             lastName = "Smith",
             userEmail = "a.smith@gmail.com",
-            UserNumber = "2354567454";
+            UserNumber = "2354567454",
+            pathnamejpg = "src/test/java/com/mikhailovavalery/tests/resources/PracticeForm.jpg",
+            userAdress = "Blin Street",
+            state = "NCR";
 }

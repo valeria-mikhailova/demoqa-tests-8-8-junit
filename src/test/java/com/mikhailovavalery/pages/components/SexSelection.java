@@ -6,6 +6,5 @@ public class SexSelection {
 
     public void setSex() {
         $(".custom-control-label").click();
-
     }
 }
