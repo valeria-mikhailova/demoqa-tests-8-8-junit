@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-12-06T20:14:40" hostname="DESKTOP-NH6SPRP" time="17.341">
+  <properties/>
+  <testcase name="Select sex" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="9.297"/>
+  <testcase name="Select sex" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="2.794"/>
+  <testcase name="Select sex" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="2.539"/>
+  <testcase name="[1] admin" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="0.007"/>
+  <testcase name="[2] Peter" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="0.001"/>
+  <testcase name="[3] Alex" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="0.002"/>
+  <testcase name="[4] anonymous" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="0.001"/>
+  <testcase name="Positive test input telephone number with csv source 1001" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="1.365"/>
+  <testcase name="Positive test input telephone number with csv source 1002" classname="com.mikhailovavalery.tests.PracticeFormTestsWithPageObjectTestsHomeWork" time="1.214"/>
+  <system-out><![CDATA[MALE
+FEMALE
+OTHER
+Tester is: admin
+Tester is: Peter
+Tester is: Alex
+Tester is: anonymous
+1001. Only numbers nine in the number
+1002. Number starts with an eight
+]]></system-out>
+  <system-err><![CDATA[[Test worker] INFO com.codeborne.selenide.impl.WebDriverThreadLocalContainer - No webdriver is bound to current thread: 15 - let's create a new webdriver
+[Test worker] INFO com.codeborne.selenide.impl.FileHelper - Creating folder: C:\Users\Valeria Mikhailova\OneDrive\Рабочий стол\QA.GURU\demoqa-tests-8-8- junit\build\downloads\1638821680658_14396_15
+[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 96.0.4664.45 (resolved driver for Chrome 96)
+[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\Valeria Mikhailova\.cache\selenium\chromedriver\win32\96.0.4664.45\chromedriver.exe
+Starting ChromeDriver 96.0.4664.45 (76e4c1bb2ab4671b8beba3444e61c0f17584b2fc-refs/branch-heads/4664@{#947}) on port 64897
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+дек. 06, 2021 11:14:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+дек. 06, 2021 11:14:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 96, so returning the closest version found: 95
+дек. 06, 2021 11:14:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Found CDP implementation for version 96 of 95
+[Test worker] INFO com.codeborne.selenide.webdriver.HttpClientTimeouts - Changed connectTimeout from PT10S to PT10S
+[Test worker] INFO com.codeborne.selenide.webdriver.HttpClientTimeouts - Changed readTimeout from PT3M to PT3M
+[Test worker] INFO com.codeborne.selenide.webdriver.BrowserResizer - Set browser size to 1366x768
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - BrowserName=chrome Version=96.0.4664.45 Platform=WINDOWS
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenide v. 6.0.3
+[Test worker] INFO com.codeborne.selenide.webdriver.WebDriverFactory - Selenium WebDriver v. 4.0.0 build revision: 3a21814679
+[Test worker] INFO com.codeborne.selenide.drivercommands.CreateDriverCommand - Create webdriver in current thread 15: ChromeDriver -> ChromeDriver: chrome on WINDOWS (6f39bc2c914821ef4160c3a4334b22fa)
+]]></system-err>
+</testsuite>

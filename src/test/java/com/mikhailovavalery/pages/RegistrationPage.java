@@ -1,11 +1,12 @@
 package com.mikhailovavalery.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.mikhailovavalery.pages.components.*;
+import com.mikhailovavalery.domain.RegistrationPageEnum;
+
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static com.mikhailovavalery.tests.TestData.state;
 
 public class RegistrationPage {
 
@@ -16,18 +17,10 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            userNumberInput = $("#userNumber"),
-            userAdressInput =  $("#currentAddress"),
-            stateList = $("#state"),
-            cityList = $("#city"),
-            buttonSubmit = $("#submit"),
-            titleText = $(".modal-title");
+            userNumberInput = $("#userNumber");
 
-    public CalendarComponent calendar = new CalendarComponent();
-    public SexSelection male = new SexSelection();
-    public SubjectsContainer subject = new SubjectsContainer();
-    public HobbySelection reading = new HobbySelection();
-    public FileUpploader pic = new FileUpploader();
+
+
 
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
@@ -54,31 +47,10 @@ public class RegistrationPage {
         return this;
     }
 
-    public void checkResultsValue(String key, String value) {
-        $x("//td[text()='" + key + "']").parent().shouldHave(text(value));
-    }
 
-    public RegistrationPage typeUserAdress(String value) {
-        userAdressInput.setValue(value);
-        return this;
-    }
-
-    public RegistrationPage findState() {
-        stateList.find("input").setValue(state).pressEnter();
-        return this;
-    }
-
-    public RegistrationPage findCity() {
-        cityList.find("input").setValue("Gurgaon").pressEnter();
-        return this;
-    }
-
-    public void clickSubmit() {
-        buttonSubmit.scrollTo().click();
-    }
-
-    public RegistrationPage shouldHaveText() {
-        titleText.shouldHave(text("Thanks for submitting the form"));
+    /// Для домашней работы по JUnit5
+    public RegistrationPage switchToSex (RegistrationPageEnum registrationPageEnum){
+        $$("div[class='col-md-9 col-sm-12']").find(Condition.text(registrationPageEnum.getSex())).click();
         return this;
     }
 }

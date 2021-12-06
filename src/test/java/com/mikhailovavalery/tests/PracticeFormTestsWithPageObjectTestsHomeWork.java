@@ -1,40 +1,68 @@
 package com.mikhailovavalery.tests;
 
+import com.mikhailovavalery.domain.RegistrationPageEnum;
 import com.mikhailovavalery.pages.RegistrationPage;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.io.File;
+import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.mikhailovavalery.tests.TestData.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class PracticeFormTestsWithPageObjectTestsHomeWork extends TestBase {
+class PracticeFormTestsWithPageObjectTestsHomeWork {
 
-    RegistrationPage registrationPage = new RegistrationPage();
+    private RegistrationPage registrationPage = new RegistrationPage();
 
-    @Test
-    void TestForm() {
+    @CsvSource
+            (value = {
+                    "1001; 9999999999; Only numbers nine in the number",
+                    "1002; 8999523658; Number starts with an eight"
+            }, delimiter = ';')
+    @ParameterizedTest(name = "Positive test input telephone number with csv source {0}")
+    void positiveTestInputTelephoneNumberWithCsvSource(int nomderTestCase,
+                                                       String telephoneNomber,
+                                                       String nameTelephoneNomder) {
         registrationPage.openPage();
-        registrationPage.typeFirstName(firstName)
-                        .typeLastName(lastName)
-                        .typeUserEmail(userEmail)
-                        .typeUserAdress(userAdress);
-        registrationPage.male.setSex();
-        registrationPage.typeUserNumber(UserNumber);
-        registrationPage.calendar.setDate("17", "December", "1992");
-        registrationPage.subject.setSubject("Commerce");
-        registrationPage.reading.setHobby();
-        registrationPage.pic.setFile(pathnamejpg);
-        registrationPage.findState()
-                        .findCity();
-        registrationPage.clickSubmit();
-        registrationPage.shouldHaveText()
-                        .checkResultsValue("Student Name", firstName + " " + lastName );
+        registrationPage.typeUserNumber(telephoneNomber);
+        System.out.println(nomderTestCase + ". " + nameTelephoneNomder);
+    }
+
+    //  для всех запустится, кроме MALE
+    //  @EnumSource(value = RegistrationPageEnum.class, names = {"MALE"}, mode = EnumSource.Mode.EXCLUDE)
+    @EnumSource(RegistrationPageEnum.class)
+    @ParameterizedTest(name = "Select sex")
+    void selectSex(RegistrationPageEnum registrationPageEnum) {
+        registrationPage.openPage();
+        registrationPage.switchToSex(registrationPageEnum);
+        System.out.println(registrationPageEnum);
+    }
+
+    @ParameterizedTest
+    @MethodSource("whoIsTester")
+    void testWhoIsTesterWithMethodSource(String tester) {
+        System.out.println("Tester is: " + tester);
+        assertNotNull(tester);
+    }
+
+    static Stream<String> whoIsTester() {
+        return Stream.of("admin", "Peter", "Alex", "anonymous");
     }
 }
-//     Пример, как писать более красиво. Вместо длинных строчек с плюсами (см строчку предыдущую)
-//     String bigtext = "apple %s banana %s ananas"; // на места %s встанут переменные b и c
-//     String b = "and";
-//     String c = "not";
-//     System.out.print(String.format(bigtext, b, c));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
